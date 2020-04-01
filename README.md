@@ -12,7 +12,7 @@ using the JWS Compact Serialization or the JWE Compact Serialization.
    A JSON web token(JWT) is JSON Object which is used to securely transfer information over the
 web(between two parties).
 ```
-###### Quickstart
+**Quickstart**
 
 [Get started in 5 minutes] [Quickstart](https://www.npmjs.com/package/jsonwebtoken).
 
