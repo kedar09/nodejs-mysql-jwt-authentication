@@ -1,21 +1,21 @@
-var authModel = require('./auth.model');
+const authModel = require('./auth.model');
 
 exports.loginUser = function (req, res) {
-    authModel.loginUser(req, function (err, task) {
-        if (err) {
-            res.send(err);
+    authModel.loginUser(req, function (error, result) {
+        if (error) {
+            res.status(400).send(error);
         } else {
-            res.json(task);
+            res.status(200).send(result);
         }
     });
 };
 
 exports.registerUser = function (req, res) {
-    authModel.registerUser(req, function (err, task) {
-        if (err) {
-            res.send(err);
+    authModel.registerUser(req, function (error, result) {
+        if (error) {
+            res.status(400).send(error);
         } else {
-            res.json(task);
+            res.status(200).send(result);
         }
     });
 };
