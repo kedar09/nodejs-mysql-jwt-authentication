@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var authValidator = require('../app/AuthComponent/auth.validator');
+const express = require('express');
+const router = express.Router();
+const authValidator = require('../app/AuthComponent/auth.validator');
 
 // Login user - (body: [email,password]) - (email,password is required)
 router.post('/loginUser', authValidator.loginUser);
