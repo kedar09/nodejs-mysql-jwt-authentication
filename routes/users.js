@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var userValidator = require('../app/UserComponent/user.validator');
+const express = require('express');
+const router = express.Router();
+const userValidator = require('../app/UserComponent/user.validator');
 
 // get user profile - (body: [authId]) - (authId is required)
 router.post('/getUserProfile', userValidator.getUserProfileById);
