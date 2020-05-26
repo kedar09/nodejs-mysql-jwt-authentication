@@ -1,12 +1,9 @@
-const conn = require('../../config/database');
-let connection = conn.getConnection();
-//connect to database
-connection.connect();
+const connection = require('../../config/database');
 
 const jwt = require("jsonwebtoken");
 
 exports.registerUser = function (req, result) {
-    connection.query('INSERT INTO auth SET ?', [req.body], function (error, result) {
+    connection.query('INSERT INTO auth SET ?', [req.body], function (error, resultQuery) {
         if (error) {
             let resultRegisterUser = {message: 'User not registered'};
             result(null, resultRegisterUser);
