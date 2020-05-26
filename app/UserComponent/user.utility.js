@@ -1,8 +1,4 @@
-const conn = require('../../config/database');
-
-let connection = conn.getConnection();
-//connect to database
-connection.connect();
+const connection = require('../../config/database');
 
 exports.updateUserPassword = function (req, result) {
     connection.query('UPDATE `auth` SET password = ? where `authId`= ?',
