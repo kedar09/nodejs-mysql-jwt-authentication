@@ -1,9 +1,6 @@
 const authUtility = require('./auth.utility');
 
-const conn = require('../../config/database');
-let connection = conn.getConnection();
-//connect to database
-connection.connect();
+const connection = require('../../config/database');
 
 const jwt = require("jsonwebtoken");
 
@@ -12,9 +9,9 @@ const bcrypt = require('bcrypt');
 
 exports.loginUser = function (req, result) {
     connection.query("select count(*) as count,any_value(authId) as authId,email,password from auth where email=? group by password limit 1",
-        [req.body.email], function (err, records) {
-            if (err) {
-                result(err, null);
+        [req.body.email], function (error, records) {
+            if (error) {
+                result(error, null);
             } else {
                 if (records.length > 0) {
                     if (bcrypt.compareSync(req.body.password, records[0].password)) {
