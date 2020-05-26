@@ -1,7 +1,4 @@
-const conn = require('../../config/database');
-let connection = conn.getConnection();
-//connect to database
-connection.connect();
+const connection = require('../../config/database');
 
 const userUtility = require('./user.utility');
 
