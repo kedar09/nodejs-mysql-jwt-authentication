@@ -4,9 +4,9 @@ Sign-Up/Sign-In using Node.js, MySql and JWT(JSON Web Token).
 
 **Software prerequisites:**
 
-1. Mysql
-2. Node.js
-3. Joi
+1. Node.js
+2. Joi
+3. Mysql
 4. JSON Web Token
 
 ## Installation
