@@ -7,6 +7,7 @@ Sign-Up/Sign-In using Node.js, MySql and JWT(JSON Web Token).
 1. Mysql
 2. Node.js
 3. Joi
+4. JSON Web Token
 
 ## Installation
 
@@ -96,13 +97,13 @@ nodejs-mysql-jwt-authentication
 |____app
 |    |____AuthComponent
 |    |    |____auth.controller.js
-|    |  	 |____auth.model.js
+|    |  	|____auth.model.js
 |    |    |____auth.utility.js
 |    |    |____auth.validator.js
 |    |
 |    |____UserComponent
 |         |____user.controller.js
-|      	 |____user.model.js
+|      	  |____user.model.js
 |         |____user.utility.js
 |         |____user.validator.js
 |
