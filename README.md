@@ -97,7 +97,7 @@ nodejs-mysql-jwt-authentication
 |____app
 |    |____AuthComponent
 |    |    |____auth.controller.js
-|    |  	|____auth.model.js
+|    |    |____auth.model.js
 |    |    |____auth.utility.js
 |    |    |____auth.validator.js
 |    |
