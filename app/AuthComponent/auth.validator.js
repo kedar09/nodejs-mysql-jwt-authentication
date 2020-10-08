@@ -10,7 +10,7 @@ exports.loginUser = async function (req, res) {
             minDomainSegments: 2,
             tlds: {allow: ['com', 'net']}
         }).required(),
-        password: Joi.string().min(7).max(50).required()
+        password: Joi.string().min(3).max(50).required()
     });
     const {error} = await schema.validate(data);
     if (error) {
@@ -28,11 +28,12 @@ exports.registerUser = async function (req, res) {
             tlds: {allow: ['com', 'net']}
         }).required(),
         password: Joi.string().min(3).max(50).required(),
-        phoneNumber: Joi.string().phoneNumber().length(13),
-        displayName: Joi.string().min(3).max(50)
+        phoneNumber: Joi.string().phoneNumber().length(10),
+        displayName: Joi.string().min(1).max(50)
     });
     const {error} = await schema.validate(data);
     if (error) {
+        console.log(error.details[0].message);
         res.status(400).send({error: error.details[0].message});
     } else {
         authController.registerUser(req, res);

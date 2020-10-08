@@ -12,7 +12,8 @@ exports.registerUser = function (req, result) {
                 email: req.body.email
             };
             let token = jwt.sign({payload}, 'httpskedar', {expiresIn: '1d'});
-            let resultRegisterUser = {message: 'User register successfully', token: token, authId: result.insertId};
+            let resultRegisterUser = {message: 'User register successfully', token: token, authId: resultQuery.insertId};
+            // console.log(resultRegisterUser);
             result(null, resultRegisterUser);
         }
     });
