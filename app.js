@@ -6,11 +6,27 @@ var createError = require('http-errors');
 
 var authRouter = require('./routes/auth');
 var usersRouter = require('./routes/users');
-
+var cors = require("cors");
 const jwt = require("jsonwebtoken");
 
 var app = express();
+const swaggerUi = require("swagger-ui-express");
+const swaggerJsDoc = require("swagger-jsdoc");
 
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      title: "Library API",
+      version: "1.0.0",
+    },
+  },
+  apis: ["./routes/users.js", "./routes/auth.js"],
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));

@@ -1,21 +1,8 @@
 const connection = require('../../config/database');
 
-exports.updateUserPassword = function (req, result) {
-    connection.query('UPDATE `auth` SET password = ? where `authId`= ?',
-        [req.body.password, req.body.authId], function (error, fields) {
-            if (error) {
-                let resultUpdateUserPassword = {message: 'User Password not updated!'};
-                result(null, resultUpdateUserPassword);
-            } else {
-                let resultUpdateUserPassword = {message: 'User Password updated successfully!'};
-                result(null, resultUpdateUserPassword);
-            }
-        });
-};
-
 exports.updateUserProfile = function (req, result) {
-    connection.query('UPDATE `auth` SET ? where `authId`= ?',
-        [req.body, req.body.authId], function (error, fields) {
+    connection.query('UPDATE `users` SET ? where `userId`= ?',
+        [req.body.userProfileData, req.body.userId], function (error, fields) {
             if (error) {
                 let resultUpdateUserPassword = {message: 'User Profile not updated!!'};
                 result(null, resultUpdateUserPassword);
@@ -27,7 +14,7 @@ exports.updateUserProfile = function (req, result) {
 };
 
 exports.deleteUserProfile = function (req, result) {
-    connection.query('DELETE FROM auth WHERE authId=?', [req.body.authId],
+    connection.query('DELETE FROM users WHERE userId=?', [req.body.userId],
         function (error, fields) {
             if (error) {
                 let resultDeleteUser = {message: 'User Account Not Deleted!'};
@@ -40,7 +27,7 @@ exports.deleteUserProfile = function (req, result) {
 };
 
 exports.getUserProfileById = function (req, result) {
-    let sqlQuery = 'select authId,email,phoneNumber,displayName from auth where authId = ' + req.body.authId;
+    let sqlQuery = 'select userId,email,phoneNumber,displayName from users where userId = ' + req.body.userId;
     connection.query(sqlQuery, function (error, resultOfQuery) {
         if (error) {
             result(error, null);

@@ -88,6 +88,10 @@ parameters.
 (between two parties).
 
 
+## NodeMailer
+  [Nodemailer](https://nodemailer.com) is a module for Node.js applications to allow easy as cake email sending. 
+ Send mail through Gmail [click here](https://nodemailer.com/usage/using-gmail/)
+
 ## Folder Structure
 
 ```
@@ -147,11 +151,11 @@ create database TEST;
 
 use TEST;
 
-create table auth(
-    authId int primary key auto_increment,
+create table users(
+    userId int primary key auto_increment,
     email varchar(30) unique,
     password varchar(250),
-    displayName varchar(50,
+    displayName varchar(50),
     phoneNumber bigint
 );
 ```

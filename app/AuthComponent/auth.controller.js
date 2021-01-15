@@ -19,3 +19,23 @@ exports.registerUser = function (req, res) {
         }
     });
 };
+
+exports.resetPasswordLink = function (req, res) {
+    authModel.resetPasswordLink(req, function (error, result) {
+        if (error) {
+            res.status(400).send(error);
+        } else {
+            res.status(200).send(result);
+        }
+    });
+};
+
+exports.updateUserPassword = function (req, res) {
+    authModel.updateUserPassword(req, function (error, result) {
+        if (error) {
+            res.status(400).send(error);
+        } else {
+            res.status(200).send(result);
+        }
+    });
+};

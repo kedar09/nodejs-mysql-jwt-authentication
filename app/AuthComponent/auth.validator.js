@@ -10,7 +10,7 @@ exports.loginUser = async function (req, res) {
             minDomainSegments: 2,
             tlds: {allow: ['com', 'net']}
         }).required(),
-        password: Joi.string().min(3).max(50).required()
+        password: Joi.string().min(5).max(50).required()
     });
     const {error} = await schema.validate(data);
     if (error) {
@@ -27,15 +27,45 @@ exports.registerUser = async function (req, res) {
             minDomainSegments: 2,
             tlds: {allow: ['com', 'net']}
         }).required(),
-        password: Joi.string().min(3).max(50).required(),
-        phoneNumber: Joi.string().phoneNumber().length(10),
-        displayName: Joi.string().min(1).max(50)
+        password: Joi.string().min(5).max(50).required(),
+        phoneNumber: Joi.string().phoneNumber(),
+        displayName: Joi.string().min(3).max(50)
     });
     const {error} = await schema.validate(data);
     if (error) {
-        console.log(error.details[0].message);
         res.status(400).send({error: error.details[0].message});
     } else {
         authController.registerUser(req, res);
     }
 };
+
+exports.resetPasswordLink = async function (req, res) {
+    const data = req.body;
+    const schema = Joi.object({
+        email: Joi.string().email({
+            minDomainSegments: 2,
+            tlds: {allow: ['com', 'net']}
+        }).required()
+    });
+    const {error} = await schema.validate(data);
+    if (error) {
+        res.status(400).send({error: error.details[0].message});
+    } else {
+        authController.resetPasswordLink(req, res);
+    }
+};
+
+exports.updateUserPassword = async function (req, res) {
+    const data = req.body;
+    const schema = Joi.object({
+        // userId: Joi.number().integer().min(0).max(1000).required(),
+        password: Joi.string().min(7).max(50).required(),
+    });
+    const {error} = await schema.validate(data);
+    if (error) {
+        res.status(400).send({ error: error.details[0].message });
+    } else {
+        authController.updateUserPassword(req, res);
+    }
+};
+
