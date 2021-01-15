@@ -8,6 +8,8 @@ Sign-Up/Sign-In using Node.js, MySql and JWT(JSON Web Token).
 2. Joi
 3. Mysql
 4. JSON Web Token
+5. Nodemailer
+6. Swagger
 
 ## Installation
 
