@@ -57,9 +57,10 @@ async function resetPassworSendMailLink(req, token, result, userId) {
       from: nodemailerDetails.user, // sender mail id
       to: req.body.email, // Receiver mail id
       subject: "Reset Password Link", // Subject of mail
-      text: `Reset Password Link 'http://localhost:3000/set-new-password?${token}?${userId}`, // text body
+      text: `Reset Password Link 'http://your-app-url/set-new-password?${token}?${userId}`, // text body
     });
-
+    // https://front-app-url?${token}?${userId} 
+    
     let resultResetPasswordLink = {
       message: "Reset password link send!",
       userId: userId,
