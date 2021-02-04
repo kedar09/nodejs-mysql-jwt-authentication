@@ -120,6 +120,8 @@ nodejs-mysql-jwt-authentication
 |
 |____config
 |    |____database.js
+|    |____JWTPrivateKey.js
+|    |____nodemailerDetails.js
 |
 |
 |____node_modules 
