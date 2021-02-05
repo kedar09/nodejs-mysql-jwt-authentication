@@ -88,11 +88,22 @@ format intended for space constrained environments such as HTTP Authorization he
 parameters.
    A JSON web token(JWT) is JSON Object which is used to securely transfer information over the web
 (between two parties).
+```bash
+$ npm install jsonwebtoken
+```
 
+## Swagger
+  [Swagger UI Express](https://www.npmjs.com/package/swagger-ui-express) module allows you to serve auto-generated swagger-ui generated API docs from express, based on a swagger.json file. The result is living documentation for your API hosted from your API server via a route.  
+```bash
+$ npm install swagger-ui-express swagger-jsdoc
+```
 
 ## NodeMailer
   [Nodemailer](https://nodemailer.com) is a module for Node.js applications to allow easy as cake email sending. 
  Send mail through Gmail [click here](https://nodemailer.com/usage/using-gmail/)
+```bash
+$ npm install nodemailer
+```
 
 ## Folder Structure
 
