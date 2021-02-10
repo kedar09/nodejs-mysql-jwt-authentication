@@ -146,7 +146,7 @@ nodejs-mysql-jwt-authentication
 |
 |
 |____routes
-|    |____index.js
+|    |____auth.js
 |    |____users.js
 |
 |
