@@ -23,8 +23,9 @@ exports.registerUser = function (req, result) {
         let resultRegisterUser = {
           message: "User register successfully",
           token: token,
-          userId: result.insertId,
+          userId: resultQuery.insertId,
         };
+        console.log('daaaaa', resultRegisterUser);
         result(null, resultRegisterUser);
       }
     }
