@@ -42,3 +42,19 @@ exports.deleteUserProfile = async function (req, res) {
         userController.deleteUserProfile(req, res);
     }
 };
+
+exports.updateUserPassword = async function (req, res) {
+    const data = req.body;
+    const schema = Joi.object({
+        userId: Joi.number().integer().min(0).max(1000).required(),
+        password: Joi.string().min(5).max(50).required(),
+    });
+    const {error} = await schema.validate(data);
+    if (error) {
+        console.log(error);
+        res.status(400).send({ error: error.details[0].message });
+    } else {
+        userController.updateUserPassword(req, res);
+    }
+};
+

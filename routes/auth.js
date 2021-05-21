@@ -85,29 +85,4 @@ router.post('/registerUser', authValidator.registerUser);
 router.post('/resetPasswordLink', authValidator.resetPasswordLink);
 
 
-// for update password you need a reset password link
-/**
- * @swagger
- * /auth/updateUserPassword:
- *   post:
- *     tags:
- *         - Update User Password 
- *     description: Update User Password
- *     parameters:
- *         - name: reqBody
- *           description: Request Body Update Password
- *           in: body
- *           schema:
- *              type: object
- *              properties:
- *                  password:
- *                      type: string
- *              required:
- *                  - password
- *     responses:
- *       200:
- *         description: Success Response
- */
-router.put('/updateUserPassword', authValidator.updateUserPassword);
-
 module.exports = router;

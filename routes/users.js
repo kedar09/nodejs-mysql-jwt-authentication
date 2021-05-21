@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const userValidator = require('../app/UserComponent/user.validator');
+const userValidator = require("../app/UserComponent/user.validator");
 
 /**
  * @swagger
@@ -27,12 +27,12 @@ const userValidator = require('../app/UserComponent/user.validator');
  *                      type: integer
  *              required:
  *                  - userId
- * 
+ *
  *     responses:
  *       200:
  *         description: Success Response
  */
-router.post('/getUserProfile', userValidator.getUserProfileById);
+router.post("/getUserProfile", userValidator.getUserProfileById);
 
 /**
  * @swagger
@@ -57,12 +57,12 @@ router.post('/getUserProfile', userValidator.getUserProfileById);
  *              properties:
  *                  userProfileData:
  *                        type: object
- *                        properties: 
+ *                        properties:
  *                              displayName:
  *                                  type: string
  *                              phoneNumber:
  *                                  type: string
- *                  userId: 
+ *                  userId:
  *                      type: integer
  *              required:
  *                  - userId
@@ -70,7 +70,7 @@ router.post('/getUserProfile', userValidator.getUserProfileById);
  *       200:
  *         description: Success Response
  */
-router.put('/updateUserProfile', userValidator.updateUserProfile);
+router.put("/updateUserProfile", userValidator.updateUserProfile);
 
 /**
  * @swagger
@@ -96,6 +96,38 @@ router.put('/updateUserProfile', userValidator.updateUserProfile);
  *       200:
  *         description: Success Response
  */
-router.delete('/deleteUserProfile/:userId', userValidator.deleteUserProfile);
+router.delete("/deleteUserProfile/:userId", userValidator.deleteUserProfile);
+
+// for update password you need a reset password link
+/**
+ * @swagger
+ * securityDefinitions:
+ *   Bearer:
+ *      type: apiKey
+ *      name: Authorization
+ *      in: header
+ * /auth/updateUserPassword:
+ *   post:
+ *     security:
+ *         - Bearer: []
+ *     tags:
+ *         - Update User Password
+ *     description: Update User Password
+ *     parameters:
+ *         - name: reqBody
+ *           description: Request Body Update Password
+ *           in: body
+ *           schema:
+ *              type: object
+ *              properties:
+ *                  password:
+ *                      type: string
+ *              required:
+ *                  - password
+ *     responses:
+ *       200:
+ *         description: Success Response
+ */
+router.put("/updateUserPassword", userValidator.updateUserPassword);
 
 module.exports = router;
