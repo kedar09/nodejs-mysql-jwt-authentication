@@ -59,7 +59,8 @@ async function resetPassworSendMailLink(req, token, result, userId) {
       subject: "Reset Password Link", // Subject of mail
       text: `Reset Password Link 'http://localhost:3000/set-new-password/${token}/${userId}`, // text body
     });
-
+    // https://front-app-url?${token}?${userId} 
+    
     let resultResetPasswordLink = {
       message: "Reset password link send!",
       userId: userId,
