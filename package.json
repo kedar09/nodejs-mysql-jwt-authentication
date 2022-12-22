@@ -13,7 +13,7 @@
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "joi-phone-number": "^4.1.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "morgan": "~1.9.1",
     "mysql": "^2.18.1",
     "nodemailer": "^6.4.17",
